@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="listForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Titre</label>
+        <input type="text" class="form-control" formControlName="listTitle" #listTitle [(ngModel)] = "list.listTitle" />
+      </div>
+      <div *ngIf="listForm.controls['listTitle'].invalid && (listForm.controls['listTitle'].dirty || listForm.controls['listTitle'].touched)" class="alert alert-danger">
+        <div *ngIf="listForm.controls['listTitle'].errors.listForm">
+          Veuillez saisir le titre.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Description</label>
+        <input type="text" class="form-control" formControlName="listDescription" #listDescription [(ngModel)] = "list.listDescription" />
+      </div>
+      <div *ngIf="listForm.controls['listDescription'].invalid && (listForm.controls['listDescription'].dirty || listForm.controls['listDescription'].touched)" class="alert alert-danger">
+        <div *ngIf="listForm.controls['listDescription'].errors.listForm">
+          Veuillez saisir une description.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click)="updateList(listTitle.value, listDescription.value)"
+                [disabled]="listForm.invalid"
+                class="btn btn-primary">Mettre à jour</button>
+      </div>
+    </form>
+  </div>
+</div>

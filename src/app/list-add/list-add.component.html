@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmitList()" [formGroup]="listForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Titre</label>
+        <input type="text" class="form-control" formControlName="listTitle" #listTitle />
+      </div>
+      <div *ngIf="listForm.controls['listTitle'].invalid && (listForm.controls['listTitle'].dirty || listForm.controls['listTitle'].touched)" class="alert alert-danger">
+        <div *ngIf="listForm.controls['listTitle'].errors.required">
+          Vous devez saisir un titre.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Description</label>
+        <input type="text" class="form-control" formControlName="listDescription" #listDescription />
+      </div>
+      <div *ngIf="listForm.controls['listDescription'].invalid && (listForm.controls['listDescription'].dirty || listForm.controls['listDescription'].touched)" class="alert alert-danger">
+        <div *ngIf="listForm.controls['listDescription'].errors.required">
+          Vous devez saisir une description.
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit"
+                [disabled]="listForm.pristine || listForm.invalid"
+                class="btn btn-primary">Créer la liste</button>
+      </div>
+    </form>
+  </div>
+</div>
