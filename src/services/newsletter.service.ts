@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class NewsletterService {
 
-  uri = 'http://localhost:4000';
+  uri = 'http://192.168.43.20:4000';
 
   constructor(private http: HttpClient) {
 

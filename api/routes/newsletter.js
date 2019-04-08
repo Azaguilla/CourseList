@@ -1,7 +1,7 @@
 const webpush = require('web-push');
 const http    = require('http');
 const express = require('express');
-const uri     = 'http://localhost:4000';
+const uri     = 'http://192.168.43.20:4000';
 const newsletterRoutes = express.Router();
 const cors    = require('cors');
 
